@@ -20,11 +20,38 @@ Method creerVoiture(pRequest As msg.creerVoitureDmde, Output pResponse As msg.cr
     Quit $$$OK
 }
 
+Method deleteVoiture(pRequest As msg.deleteVoitureDmde, Output pResponse As msg.deleteVoitureRpse) As %Status
+{
+    
+    set pResponse = ##class(msg.deleteVoitureRpse).%New()
+    if (##class(data.Voiture).consulterParPlaqueExists(pRequest.plaque,.idVoiture)){
+       set tsc = ##class(data.Voiture).%DeleteId(idVoiture)
+       set pResponse.codeRetour = "OK"
+       if 'tsc{
+         set pResponse.codeRetour= "KO"
+         set pResponse.libErreur= "Erreur technique lors de la suppression"
+         Quit $$$OK
+
+       }
+      
+    }
+    else {
+         set pResponse.codeRetour= "KO"
+         set pResponse.libErreur= "Voitureinexistance" 
+    }
+    
+    
+    Quit $$$OK
+}
+
 XData MessageMap
 {
 <MapItems>
     <MapItem MessageType="msg.creerVoitureDmde">
         <Method>creerVoiture</Method>
+    </MapItem>
+    <MapItem MessageType="msg.deleteVoitureDmde">
+        <Method>deleteVoiture</Method>
     </MapItem>
 </MapItems>
 }
