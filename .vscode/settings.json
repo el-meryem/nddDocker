@@ -5,7 +5,7 @@
       },
     "objectscript.conn" :{
       "ns": "ESB",
-      "active": true,
+      "active": false,
       "docker-compose": {
         "service": "iris",
         "internalPort": 52773
@@ -14,7 +14,8 @@
         "CRUD REST spec": "http://localhost:${port}/crud/_spec"
       },
       "server": "default~iris"
-    }
+    },
+    "workbench.colorTheme": "InterSystems Default Dark"
     
     
   

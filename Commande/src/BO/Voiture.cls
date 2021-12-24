@@ -22,7 +22,7 @@ Method creerVoiture(pRequest As msg.creerVoitureDmde, Output pResponse As msg.cr
 
 Method deleteVoiture(pRequest As msg.deleteVoitureDmde, Output pResponse As msg.deleteVoitureRpse) As %Status
 {
-    
+   
     set pResponse = ##class(msg.deleteVoitureRpse).%New()
     if (##class(data.Voiture).consulterParPlaqueExists(pRequest.plaque,.idVoiture)){
        set tsc = ##class(data.Voiture).%DeleteId(idVoiture)
@@ -31,9 +31,7 @@ Method deleteVoiture(pRequest As msg.deleteVoitureDmde, Output pResponse As msg.
          set pResponse.codeRetour= "KO"
          set pResponse.libErreur= "Erreur technique lors de la suppression"
          Quit $$$OK
-
        }
-      
     }
     else {
          set pResponse.codeRetour= "KO"
