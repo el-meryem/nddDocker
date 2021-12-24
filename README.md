@@ -1,9 +1,9 @@
-#Projet InterSystem
+# Projet InterSystem
 
-##Etudiants
+## Etudiants
 
-###Meryem Elbouti
-###Youssef Hilili
+### Meryem Elbouti
+### Youssef Hilili
 
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
@@ -30,7 +30,7 @@ or open the folder in VSCode and do the following:
 
 
 
-#Merci pour la formation !
+# Merci pour la formation !
 
 
 
